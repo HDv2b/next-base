@@ -1,8 +1,10 @@
 # Next Base
 
-An opinionated Next.js starter for my personal projects.
+A minimal Next.js starter containing the setup I want in every project.
 
-Built on `create-next-app`, with the repetitive setup I usually want already in place: pnpm, TypeScript, Tailwind, Biome, Husky, sensible Git/editor defaults, and a few useful metadata files.
+Built on `create-next-app`, it adds only the shared baseline I repeatedly reach for: pnpm, TypeScript, Tailwind, Biome, Husky, sensible Git/editor defaults, and a small set of useful metadata files.
+
+Project-specific choices are intentionally left out.
 
 ## Quick start
 
@@ -35,7 +37,7 @@ pnpm dlx create-next-app@latest . \
   --yes
 ```
 
-On top of the default Next.js scaffold, it adds:
+On top of the default Next.js scaffold, it adds the common baseline:
 
 - `.editorconfig` and `.gitattributes` defaults
 - LF line endings for text and shell files
@@ -100,6 +102,8 @@ After generating a project, review the TODOs in:
 Also check any environment-specific values in `.env.example`.
 
 ## Notes
+
+This is deliberately a baseline rather than a kitchen-sink starter. Authentication, databases, component libraries, state management, testing strategy, analytics, and other project-specific decisions should be added only when a project actually needs them.
 
 This starter is primarily designed around:
 
