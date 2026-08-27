@@ -1,50 +1,113 @@
-Hussein Duvigneau's
 # Next Base
 
-My common next-js set-up for my own personal projects.
+An opinionated Next.js starter for my personal projects.
 
-## Background
+Built on `create-next-app`, with the repetitive setup I usually want already in place: pnpm, TypeScript, Tailwind, Biome, Husky, sensible Git/editor defaults, and a few useful metadata files.
 
-Made with JetBrains IDEs in mind, so doesn't cover extra set-up for VSCode - .idea/ added to gitignore.
+## Quick start
 
-Built up from `pnpm dlx create-next-app@latest . --ts --use-pnpm --tailwind --src-dir --app --biome --yes`
+Recommended prerequisite:
 
-Adds common `.editorconfig` and `.gitattributes` settings.
+```bash
+pnpm self-update
+```
 
-Renames default branch to "main" and amends next's initial commit to conventional commit format.
+Create a new project from this starter:
 
-### Husky
+```bash
+pnpm create next-app --example "https://github.com/HDv2b/next-base" your-project-name
+```
 
-As this is for personal projects, the emphasis is on:
-✔️ Keeping code and changes clean and consistent
-✔️ Not pushing broken code to `main`
-and I don't care about:
-❌ Forcing merges to go through 2nd-person review. 
+Then review the project-specific TODOs listed below.
 
-pre-commit:
-* Format and lint staged files.
-* Commit message must be a [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/)
+## What it includes
 
-pre-push:
-* Run tests.
-* If on main, check the app successfully builds.
+This starter is based on:
 
-### Search + crawler metadata files
+```bash
+pnpm dlx create-next-app@latest . \
+  --ts \
+  --use-pnpm \
+  --tailwind \
+  --src-dir \
+  --app \
+  --biome \
+  --yes
+```
 
-SEO and AI crawlers, as well as human lurkers taken care of.
+On top of the default Next.js scaffold, it adds:
 
-Helper function `getBaseUrl()` to keep robots.txt and sitemap.xml correct across all deployments - maybe useful elsewhere too.
+- `.editorconfig` and `.gitattributes` defaults
+- LF line endings for text and shell files
+- `.idea/` in `.gitignore` for JetBrains IDEs
+- `main` as the default branch
+- a Conventional Commit-compatible initial commit
+- Husky hooks for local quality checks
+- `getBaseUrl()` for environment-aware canonical URLs
+- `robots.txt`, `sitemap.xml`, `llms.txt`, `humans.txt`, and `security.txt`
+- placeholders for project-specific metadata that should not be guessed up front
 
-## Getting Started
+## Git hooks
 
-Recommended prerequisite: `pnpm self-update`
+This setup is aimed at solo projects, so the goal is to keep local development disciplined without adding process for its own sake.
 
-Run `pnpm create next-app --example "https://github.com/HDv2b/next-base" [your-project-name]`
+### Pre-commit
 
-## Follow-up
+- Format and lint staged files
+- Validate commit messages against [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
-See TODOs in:
-* public/ads.txt
-* public/humans.txt
-* public/llms.txt
-* public/.well-known/security.txt
+### Pre-push
+
+- Run tests
+- When pushing from `main`, run a production build before Vercel gets the chance to deploy it
+
+The emphasis is on:
+
+- keeping changes clean and consistent
+- catching broken code before it reaches `main`
+- keeping hooks lightweight enough that they do not get in the way
+
+It deliberately does **not** enforce pull requests or second-person review.
+
+## Search and crawler metadata
+
+The starter includes some common search, crawler, and discoverability files so they do not need to be remembered later.
+
+`src/lib/url.ts` exposes a small `getBaseUrl()` helper used by `robots.ts` and `sitemap.ts` so generated URLs work across local development and deployed environments.
+
+Included files:
+
+- `src/app/robots.ts`
+- `src/app/sitemap.ts`
+- `public/llms.txt`
+- `public/humans.txt`
+- `public/.well-known/security.txt`
+- `public/ads.txt`
+
+The root layout also links to `humans.txt` and `llms.txt`.
+
+## Project-specific TODOs
+
+Some values cannot sensibly be known when the starter itself is created.
+
+After generating a project, review the TODOs in:
+
+- `public/ads.txt`
+- `public/humans.txt`
+- `public/llms.txt`
+- `public/.well-known/security.txt`
+
+Also check any environment-specific values in `.env.example`.
+
+## Notes
+
+This starter is primarily designed around:
+
+- pnpm
+- JetBrains IDEs
+- solo development
+- Vercel deployment
+
+It does not include extra VS Code-specific setup.
+
+If you use the repository only as a reference rather than through `create-next-app --example`, you may need to repeat some of the repository-normalisation steps manually.
