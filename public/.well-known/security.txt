@@ -1,0 +1,6 @@
+# TODO: replace these placeholders once security contact/policy details are known
+Contact: TODO
+Expires: TODO
+Preferred-Languages: en
+Canonical: TODO
+Policy: TODO

@@ -1,0 +1,16 @@
+/* TEAM */
+Solo Developer: Your Name
+Site: TODO
+Twitter / X: @TODO
+GitHub: TODO
+LinkedIn: TODO
+Location: TODO
+
+/* THANKS */
+Name or Community: For open-source tools, inspiration, or support.
+
+/* SITE */
+Last update: TODO: TODAY'S DATE
+Standards: HTML5, CSS3, JavaScript
+Components: React, Tailwind CSS, Vite
+Software: WebStorm, TODO...

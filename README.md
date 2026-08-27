@@ -29,8 +29,22 @@ pre-commit:
 * Run tests.
 * If on main, check the app successfully builds.
 
+### Search + crawler metadata files
+
+SEO and AI crawlers, as well as human lurkers taken care of.
+
+Helper function `getBaseUrl()` to keep robots.txt and sitemap.xml correct across all deployments - maybe useful elsewhere too.
+
 ## Getting Started
 
 Recommended prerequisite: `pnpm self-update`
 
 Run `pnpm create next-app --example "https://github.com/HDv2b/next-base" [your-project-name]`
+
+## Follow-up
+
+See TODOs in:
+* public/ads.txt
+* public/humans.txt
+* public/llms.txt
+* public/.well-known/security.txt
