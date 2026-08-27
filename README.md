@@ -25,7 +25,7 @@ pre-commit:
 * Format and lint staged files.
 * Commit message must be a [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/)
 
-* pre-push:
+pre-push:
 * Run tests.
 * If on main, check the app successfully builds.
 
