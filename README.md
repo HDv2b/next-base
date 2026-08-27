@@ -22,9 +22,12 @@ pnpm create next-app --example "https://github.com/HDv2b/next-base" your-project
 
 Then review the project-specific TODOs listed below.
 
+
 ## What it includes
 
-This starter is based on:
+The aim is to keep this starter small: only setup that is common to essentially all of my Next.js projects belongs here.
+
+It is based on:
 
 ```bash
 pnpm dlx create-next-app@latest . \
@@ -99,7 +102,17 @@ After generating a project, review the TODOs in:
 - `public/llms.txt`
 - `public/.well-known/security.txt`
 
-Also check any environment-specific values in `.env.example`.
+
+## Replace this README
+
+Once you have acknowledged the project-specific TODOs above, replace this starter README with the included project README template:
+
+```bash
+rm README.md
+mv README.example.md README.md
+```
+
+Then customise the new README so it documents the actual project rather than Next Base.
 
 ## Notes
 
