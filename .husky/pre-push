@@ -1,0 +1,13 @@
+# Run tests only if package.json defines a test:run script.
+if node -e "const p=require('./package.json'); process.exit(p.scripts?.['test:run'] ? 0 : 1)"; then
+  pnpm test:run
+fi
+
+# Read the name of the currently checked-out branch.
+branch=$(git branch --show-current)
+
+# Only run a production build when pushing from the main branch.
+if [ "$branch" = "main" ]; then
+  # Catch build-time errors locally before Vercel starts the deployment.
+  pnpm build
+fi

@@ -1,0 +1,9 @@
+# Format and lint only files currently staged for commit.
+# --write applies safe fixes where possible.
+# --staged limits Biome to staged files.
+# --files-ignore-unknown=true skips files Biome does not understand.
+# --no-errors-on-unmatched prevents the hook failing when no staged files are applicable to Biome.
+pnpm exec biome check --write --staged --files-ignore-unknown=true --no-errors-on-unmatched
+
+# Refresh Git's index so Biome's changes to staged files are included in the commit.
+git update-index --again

@@ -1,0 +1,2 @@
+# Validate the commit message file passed to this hook against commitlint rules.
+pnpm exec commitlint --edit "$1"
