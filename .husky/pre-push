@@ -3,6 +3,9 @@ if node -e "const p=require('./package.json'); process.exit(p.scripts?.['test:ru
   pnpm test:run
 fi
 
+# Type-check only packages affected by the pushed changes (cached by Turborepo).
+pnpm exec turbo run check-types --affected
+
 # Read the name of the currently checked-out branch.
 branch=$(git branch --show-current)
 

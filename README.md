@@ -52,6 +52,17 @@ On top of the default Next.js scaffold, it adds the common baseline:
 - `robots.txt`, `sitemap.xml`, `llms.txt`, `humans.txt`, and `security.txt`
 - placeholders for project-specific metadata that should not be guessed up front
 
+## Monorepo
+
+A Turborepo + pnpm workspace, laid out for agentic workflows:
+
+- `apps/web` – the Next.js app
+- `packages/ui` – shared components (`@repo/ui/*`)
+- `packages/config` – shared tsconfigs
+- `AGENTS.md` at the root and in each app/package gives agents the repo map and exact commands; `CLAUDE.md` imports it
+
+Run from the root: `pnpm verify` (type-check, build, lint), or scope with `pnpm turbo run <task> --filter=<pkg>` / `--affected`.
+
 ## Git hooks
 
 This setup is aimed at solo projects, so the goal is to keep local development disciplined without adding process for its own sake.
@@ -78,16 +89,16 @@ It deliberately does **not** enforce pull requests or second-person review.
 
 The starter includes some common search, crawler, and discoverability files so they do not need to be remembered later.
 
-`src/lib/url.ts` exposes a small `getBaseUrl()` helper used by `robots.ts` and `sitemap.ts` so generated URLs work across local development and deployed environments.
+`apps/web/src/lib/url.ts` exposes a small `getBaseUrl()` helper used by `robots.ts` and `sitemap.ts` so generated URLs work across local development and deployed environments.
 
 Included files:
 
-- `src/app/robots.ts`
-- `src/app/sitemap.ts`
-- `public/llms.txt`
-- `public/humans.txt`
-- `public/.well-known/security.txt`
-- `public/ads.txt`
+- `apps/web/src/app/robots.ts`
+- `apps/web/src/app/sitemap.ts`
+- `apps/web/public/llms.txt`
+- `apps/web/public/humans.txt`
+- `apps/web/public/.well-known/security.txt`
+- `apps/web/public/ads.txt`
 
 The root layout also links to `humans.txt` and `llms.txt`.
 
@@ -97,10 +108,10 @@ Some values cannot sensibly be known when the starter itself is created.
 
 After generating a project, review the TODOs in:
 
-- `public/ads.txt`
-- `public/humans.txt`
-- `public/llms.txt`
-- `public/.well-known/security.txt`
+- `apps/web/public/ads.txt`
+- `apps/web/public/humans.txt`
+- `apps/web/public/llms.txt`
+- `apps/web/public/.well-known/security.txt`
 
 
 ## Replace this README

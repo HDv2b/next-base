@@ -9,11 +9,13 @@
     "ignoreUnknown": true,
     "includes": [
       "**",
-      "!node_modules",
-      "!.next",
+      "!**/node_modules",
+      "!**/.next",
+      "!**/.turbo",
+      "!**/next-env.d.ts",
       "!dist",
       "!build",
-      "!public/**/*.svg"
+      "!**/public/**/*.svg"
     ]
   },
   "formatter": {

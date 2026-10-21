@@ -57,10 +57,9 @@ TODO: Briefly document any structure or conventions that are useful to contribut
 For example:
 
 ```text
-src/
-├── app/          # Routes and layouts
-├── components/   # Shared UI
-└── lib/          # Shared utilities
+apps/web/src/     # Next.js routes, layouts, utilities
+packages/ui/      # Shared UI components
+packages/config/  # Shared tsconfigs
 ```
 
 ## Deployment
